@@ -103,12 +103,18 @@ describe('pruebas unitarias 3', () => {
     describe('debe de poder pasar un tipo de pokemon y nos va a devolver cuantos pokemons hay de ese tipo', () => {
         it("debe de regresar la información al mandarle como parámetro un tipo de Pokémon", async () => {
             const tipoPokemon = await pokemon.getTipo(5);
+            axios.get.mockResolvedValue({
+                data: {
+                    name: "ground",
+                    number: 93
+                }
+            })
             expect(tipoPokemon).toEqual({
                 name: "ground",
                 number: 93
             })
-        });
 
+        });
     }) 
 })
 
